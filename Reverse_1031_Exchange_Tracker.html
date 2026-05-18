@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reverse 1031 Exchange Plan — 3302 N Rowland Ave</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-900: #1a3a1a;
+  --green-800: #1B5E20;
+  --green-700: #2E7D32;
+  --green-600: #388E3C;
+  --green-500: #43A047;
+  --green-400: #66BB6A;
+  --green-100: #E8F5E9;
+  --green-50: #f1f8f1;
+  --amber-700: #E65100;
+  --amber-100: #FFF3E0;
+  --amber-50: #FFF8E1;
+  --red-700: #C62828;
+  --red-100: #FFEBEE;
+  --slate-900: #1a1a2e;
+  --slate-800: #2d2d44;
+  --slate-700: #3d3d5c;
+  --slate-600: #555;
+  --slate-400: #999;
+  --slate-200: #e2e2e2;
+  --slate-100: #f0f0f0;
+  --slate-50: #f8f8fa;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+  --radius: 10px;
+  --radius-sm: 6px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(160deg, #f4f7f4 0%, #eef2ee 40%, #f8f6f0 100%);
+  color: var(--slate-900);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+.page-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--green-900) 0%, var(--green-800) 40%, var(--green-700) 100%);
+  border-radius: 16px;
+  padding: 48px 40px 40px;
+  margin-bottom: 32px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: 30%;
+  width: 300px; height: 300px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 50%;
+}
+.hero-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.4em;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.hero-sub {
+  font-size: 1.1em;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+.hero-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+.hero-chip {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.85em;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+/* PROGRESS BAR */
+.progress-bar-wrap {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--slate-200);
+}
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.progress-header span {
+  font-weight: 600;
+  font-size: 0.95em;
+}
+.progress-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: var(--green-700);
+  font-weight: 600;
+}
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: var(--slate-100);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green-700), var(--green-500));
+  border-radius: 5px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+/* NAV */
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 28px;
+  background: var(--white);
+  padding: 8px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--slate-200);
+  position: sticky;
+  top: 8px;
+  z-index: 100;
+}
+.nav-btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--slate-600);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-btn:hover { background: var(--green-50); color: var(--green-800); }
+.nav-btn.active { background: var(--green-800); color: white; }
+
+/* SECTIONS */
+.section {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--slate-200);
+  display: none;
+}
+.section.visible { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6em;
+  color: var(--green-900);
+  margin-bottom: 6px;
+}
+.section-desc {
+  color: var(--slate-600);
+  margin-bottom: 24px;
+  font-size: 0.95em;
+}
+
+/* TABLES */
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 24px;
+  font-size: 0.9em;
+  border: 1px solid var(--slate-200);
+}
+.data-table th {
+  background: var(--green-800);
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 0.85em;
+  letter-spacing: 0.3px;
+}
+.data-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--slate-100);
+}
+.data-table tr:nth-child(even) td { background: var(--slate-50); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .money { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 0.95em; }
+.data-table .total-row td { background: var(--green-100); font-weight: 700; }
+.data-table .grand-row td { background: var(--green-800); color: white; font-weight: 700; }
+.data-table .highlight { color: var(--amber-700); font-weight: 600; }
+
+/* CHECKLIST */
+.checklist { list-style: none; margin-bottom: 24px; }
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+  border-bottom: 1px solid var(--slate-100);
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li:hover { background: var(--slate-50); }
+.checklist li.checked { opacity: 0.55; }
+.checklist li.checked .cl-text { text-decoration: line-through; }
+.cl-box {
+  width: 22px; height: 22px;
+  min-width: 22px;
+  border: 2px solid var(--slate-200);
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  margin-top: 1px;
+  background: var(--white);
+}
+.cl-box:hover { border-color: var(--green-500); }
+.cl-box.done {
+  background: var(--green-700);
+  border-color: var(--green-700);
+}
+.cl-box.done::after {
+  content: '✓';
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+.cl-content { flex: 1; }
+.cl-text { font-weight: 500; font-size: 0.95em; display: block; }
+.cl-sub { font-size: 0.82em; color: var(--slate-600); margin-top: 2px; display: block; }
+.cl-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-top: 4px;
+}
+.tag-critical { background: var(--red-100); color: var(--red-700); }
+.tag-important { background: var(--amber-100); color: var(--amber-700); }
+.tag-normal { background: var(--green-100); color: var(--green-800); }
+
+/* CALLOUT */
+.callout {
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid;
+  font-size: 0.92em;
+}
+.callout-green { background: var(--green-50); border-color: var(--green-700); }
+.callout-amber { background: var(--amber-50); border-color: var(--amber-700); }
+.callout-red { background: #FFF5F5; border-color: var(--red-700); }
+.callout strong { display: block; margin-bottom: 4px; }
+.callout-green strong { color: var(--green-800); }
+.callout-amber strong { color: var(--amber-700); }
+.callout-red strong { color: var(--red-700); }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 28px; margin-bottom: 24px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px; top: 8px; bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--green-700), var(--green-400));
+  border-radius: 1px;
+}
+.tl-item {
+  position: relative;
+  padding: 12px 0 20px 20px;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -24px; top: 16px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--green-700);
+}
+.tl-item.tl-done::before {
+  background: var(--green-700);
+}
+.tl-when {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78em;
+  color: var(--green-700);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.tl-what {
+  font-weight: 600;
+  margin: 2px 0;
+  font-size: 0.95em;
+}
+.tl-detail {
+  font-size: 0.85em;
+  color: var(--slate-600);
+}
+.tl-check {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 6px;
+}
+
+/* PRINT */
+.print-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--green-800);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85em;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  transition: transform 0.2s;
+}
+.print-btn:hover { transform: scale(1.05); }
+@media print {
+  .nav-bar, .print-btn, .progress-bar-wrap { display: none !important; }
+  .section { display: block !important; page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: white; }
+}
+@media (max-width: 640px) {
+  .page-wrap { padding: 12px 14px 60px; }
+  .hero { padding: 28px 20px 24px; }
+  .hero h1 { font-size: 1.6em; }
+  .section { padding: 20px 16px; }
+  .nav-btn { min-width: 80px; font-size: 0.72em; padding: 6px 8px; }
+  .hero-details { gap: 8px; }
+  .hero-chip { font-size: 0.75em; padding: 4px 10px; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Reverse Improvement 1031 Exchange</div>
+  <h1>3302 N Rowland Ave</h1>
+  <div class="hero-sub">Lumberton, NC 28358 — Student Athlete Rental Plan</div>
+  <div class="hero-details">
+    <span class="hero-chip">$299,900 Listed</span>
+    <span class="hero-chip">5 Bed / 4 Bath</span>
+    <span class="hero-chip">3,892 sq ft</span>
+    <span class="hero-chip">Built 1967</span>
+    <span class="hero-chip">MLS #759767</span>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar-wrap">
+  <div class="progress-header">
+    <span>Overall Checklist Progress</span>
+    <span class="progress-pct" id="progressPct">0%</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+
+<!-- NAV -->
+<div class="nav-bar">
+  <button class="nav-btn active" data-tab="overview">Overview</button>
+  <button class="nav-btn" data-tab="property">Property</button>
+  <button class="nav-btn" data-tab="concerns">Concerns</button>
+  <button class="nav-btn" data-tab="financials">Financials</button>
+  <button class="nav-btn" data-tab="renovations">Renovations</button>
+  <button class="nav-btn" data-tab="timeline">Timeline</button>
+  <button class="nav-btn" data-tab="actions">Action Items</button>
+</div>
+
+<!-- OVERVIEW -->
+<div class="section visible" id="overview">
+  <div class="section-title">The Big Picture</div>
+  <div class="section-desc">A quick summary of what we're doing and why.</div>
+
+  <div class="callout callout-green">
+    <strong>What is a Reverse 1031 Exchange?</strong>
+    We want to buy a new investment property before selling our current condo. Normally you sell first, then buy. A Reverse Exchange flips that order — buy first, sell second — while still deferring the capital gains taxes on the condo sale. The IRS doesn't allow us to own both properties simultaneously during the exchange, so a third-party company (the EAT) temporarily holds title to one property while the deal is completed.
+  </div>
+
+  <div class="callout callout-green">
+    <strong>What is an Improvement Exchange?</strong>
+    Since the new property ($299,900) costs less than our condo (~$350,000), the ~$50,000 difference would normally be taxable ("boot"). An Improvement Exchange lets us use the leftover exchange funds for renovations. If purchase + completed renovations ≥ condo sale price, we eliminate the boot and defer all taxes.
+  </div>
+
+  <div class="callout callout-amber">
+    <strong>Why the Rush?</strong>
+    We want the property renovated and rent-ready for college student athletes by August 2026. This requires acting quickly — engaging professionals, securing financing, and starting renovations as soon as possible.
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif; color:var(--green-900); margin:24px 0 12px;">How It Works (6 Steps)</h3>
+  <ol style="padding-left:20px; font-size:0.92em; line-height:1.8; color:var(--slate-800);">
+    <li><strong>Engage a Qualified Intermediary (QI)</strong> — they set up the exchange structure and create the EAT. Must happen before closing.</li>
+    <li><strong>EAT purchases the new property</strong> — we fund it via HELOC, bridge loan, or mortgage. We don't technically own it yet.</li>
+    <li><strong>Renovations happen while EAT holds title</strong> — exchange funds pay contractors. Only completed, installed work counts.</li>
+    <li><strong>Within 45 days</strong> — formally identify the condo as the property to sell.</li>
+    <li><strong>Sell the condo within 180 days</strong> — proceeds flow through the QI.</li>
+    <li><strong>Exchange closes</strong> — EAT transfers title to us. We own the property.</li>
+  </ol>
+
+  <div class="callout callout-green" style="margin-top:20px;">
+    <strong>Good News: We Can Rent During the Exchange</strong>
+    While the EAT holds title, they lease the property to us. We can sublease to student athletes and start collecting rent even before the exchange is fully completed.
+  </div>
+</div>
+
+<!-- PROPERTY -->
+<div class="section" id="property">
+  <div class="section-title">Property Details</div>
+  <div class="section-desc">From Zillow listing MLS #759767. Listed by Taylor Group Realty / Coldwell Banker Advantage.</div>
+
+  <table class="data-table">
+    <tr><th style="width:38%">Detail</th><th>Information</th></tr>
+    <tr><td><strong>Address</strong></td><td>3302 N Rowland Ave, Lumberton, NC 28358</td></tr>
+    <tr><td><strong>List Price</strong></td><td>$299,900 <span style="color:var(--green-700); font-size:0.85em;">(reduced from $310,000 on 5/16)</span></td></tr>
+    <tr><td><strong>Price / sq ft</strong></td><td>$77</td></tr>
+    <tr><td><strong>Beds / Baths</strong></td><td>5 beds, 3 full baths, 1 half bath</td></tr>
+    <tr><td><strong>Living Area</strong></td><td>3,892 sq ft</td></tr>
+    <tr><td><strong>Year Built</strong></td><td>1967 (59 years old)</td></tr>
+    <tr><td><strong>Style</strong></td><td>Colonial — Brick veneer & frame</td></tr>
+    <tr><td><strong>Lot</strong></td><td>Corner lot, ¼–½ acre, level, fenced backyard, patio</td></tr>
+    <tr><td><strong>Foundation</strong></td><td>Crawl space</td></tr>
+    <tr><td><strong>Heating / Cooling</strong></td><td>Gas / Gas</td></tr>
+    <tr><td><strong>Flooring</strong></td><td>Carpet, hardwood, tile</td></tr>
+    <tr><td><strong>Fireplace</strong></td><td>1 gas log fireplace (family room)</td></tr>
+    <tr><td><strong>Garage</strong></td><td>1 attached</td></tr>
+    <tr><td><strong>Water / Sewer</strong></td><td>Public / Public</td></tr>
+    <tr><td><strong>HOA</strong></td><td>None</td></tr>
+    <tr><td><strong>Annual Taxes</strong></td><td>$2,458 (assessed at $317,100)</td></tr>
+    <tr><td><strong>Zestimate</strong></td><td>$295,400 (range: $281K–$310K)</td></tr>
+    <tr><td><strong>Rent Zestimate</strong></td><td>$2,637/month</td></tr>
+    <tr><td><strong>Days on Market</strong></td><td>47 days — price recently cut 3.3%</td></tr>
+    <tr><td><strong>Last Sold</strong></td><td>Sept 2022 for $275,000</td></tr>
+    <tr><td><strong>Financing</strong></td><td>Cash, Conventional, FHA, USDA, VA</td></tr>
+    <tr><td><strong>Included</strong></td><td>Refrigerator, washer/dryer combo</td></tr>
+    <tr><td><strong>Features</strong></td><td>Circular driveway, farmhouse sink, oversized primary suite, walk-in closets, laundry chute, built-in ironing board</td></tr>
+  </table>
+
+  <div class="callout callout-green">
+    <strong>Negotiating Leverage</strong>
+    47 days on market with a 3.3% price cut signals motivation. The seller bought in 2022 for $275,000. Zestimate is $295,400. There may be room to negotiate below $299,900.
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif; color:var(--green-900); margin:20px 0 10px;">First Floor Layout</h3>
+  <table class="data-table">
+    <tr><th>Room</th><th>Size</th><th>Notes</th></tr>
+    <tr><td>Primary Bedroom</td><td>20'9" × 19'6"</td><td>Oversized suite</td></tr>
+    <tr><td>Primary Bathroom</td><td>7'9" × 13'8"</td><td class="highlight">⚒ Renovation planned</td></tr>
+    <tr><td>Primary Closet</td><td>7'0" × 13'8"</td><td>Walk-in</td></tr>
+    <tr><td>Living Room → Bedroom 6</td><td>16'4" × 20'6"</td><td class="highlight">⚒ Conversion planned</td></tr>
+    <tr><td>Family Room</td><td>21'3" × 13'10"</td><td>Fireplace (gas log)</td></tr>
+    <tr><td>Kitchen</td><td>11'1" × 13'9"</td><td>Farmhouse sink</td></tr>
+    <tr><td>Breakfast Nook</td><td>9'5" × 9'10"</td><td></td></tr>
+    <tr><td>Dining Room</td><td>15'8" × 14'6"</td><td>Formal / separate</td></tr>
+    <tr><td>Gym / Flex</td><td>10'10" × 10'8"</td><td>Office / study option</td></tr>
+    <tr><td>Half Bath</td><td>6'1" × 4'10"</td><td></td></tr>
+    <tr><td>Foyer</td><td>9'8" × 4'10"</td><td></td></tr>
+  </table>
+
+  <h3 style="font-family:'DM Serif Display',serif; color:var(--green-900); margin:20px 0 10px;">Second Floor Layout</h3>
+  <table class="data-table">
+    <tr><th>Room</th><th>Size</th><th>Notes</th></tr>
+    <tr><td>Bedroom 2</td><td>15'4" × 14'3"</td><td>Closet built in</td></tr>
+    <tr><td>Bedroom 3</td><td>15'3" × 12'8"</td><td>Multiple closets</td></tr>
+    <tr><td>Bedroom 4</td><td>15'4" × 18'1"</td><td>Largest upstairs</td></tr>
+    <tr><td>Bedroom 5</td><td>15'3" × 13'3"</td><td>Closet built in</td></tr>
+    <tr><td>Bathroom</td><td>7'2" × 8'3"</td><td class="highlight">⚒ Shower replacement</td></tr>
+    <tr><td>Bathroom #2</td><td>~8' × 6'1"</td><td></td></tr>
+    <tr><td>Multiple Closets</td><td>Throughout</td><td>Already built in</td></tr>
+  </table>
+  <p style="font-size:0.9em; color:var(--slate-600); margin-top:8px;">After conversion: <strong>6 bedrooms, 4 bathrooms</strong>, family room, dining room, kitchen, breakfast nook, gym/flex, attached garage. Capacity for 4–6 student athlete tenants.</p>
+</div>
+
+<!-- CONCERNS -->
+<div class="section" id="concerns">
+  <div class="section-title">1967 House Concerns</div>
+  <div class="section-desc">Critical items to inspect and address for a 59-year-old home. Check off items as they're investigated.</div>
+
+  <ul class="checklist" id="concernsList">
+    <li data-id="c1">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Lead-Based Paint Inspection</span>
+        <span class="cl-sub">Banned in 1978. A 1967 home almost certainly has it. Must use EPA lead-safe renovation practices (RRP rule). Required before any renovation work. Especially important since we're renting to young adults.</span>
+        <span class="cl-tag tag-critical">CRITICAL — SCHEDULE FIRST</span>
+      </div>
+    </li>
+    <li data-id="c2">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Asbestos Testing</span>
+        <span class="cl-sub">Common in 1960s construction: floor tiles (9×9"), pipe insulation, textured ceilings, adhesives, roofing. Safe when undisturbed but dangerous during renovation. Professional abatement cost counts toward exchange improvements.</span>
+        <span class="cl-tag tag-critical">CRITICAL — SCHEDULE FIRST</span>
+      </div>
+    </li>
+    <li data-id="c3">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Electrical System Inspection</span>
+        <span class="cl-sub">May have undersized panel (60–100 amp vs. modern 200 amp), insufficient outlets, or aluminum wiring. Six bedrooms of student athletes need adequate capacity. Panel upgrade: $2,000–$5,000+.</span>
+        <span class="cl-tag tag-important">IMPORTANT</span>
+      </div>
+    </li>
+    <li data-id="c4">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Plumbing Inspection</span>
+        <span class="cl-sub">Original 1967 plumbing may include galvanized steel pipes that corrode internally. Check water flow, pipe material, and condition before opening walls for bathroom renovations. Public water/sewer confirmed.</span>
+        <span class="cl-tag tag-important">IMPORTANT</span>
+      </div>
+    </li>
+    <li data-id="c5">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Crawl Space Inspection</span>
+        <span class="cl-sub">Crawl space foundation in NC's humid climate = moisture, mold, and pest risk. Check for standing water, moisture barriers, insulation, mold, and pest damage. Encapsulation work counts as exchange improvement.</span>
+        <span class="cl-tag tag-important">IMPORTANT</span>
+      </div>
+    </li>
+    <li data-id="c6">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Roof Age & Condition</span>
+        <span class="cl-sub">Not listed. Roofs last 20–30 years. Ask seller/agent for age and last replacement. A new roof ($8,000–$15,000+) is a major exchange-qualifying improvement.</span>
+        <span class="cl-tag tag-important">IMPORTANT</span>
+      </div>
+    </li>
+    <li data-id="c7">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">HVAC System Age & Condition</span>
+        <span class="cl-sub">Gas heating and cooling listed. HVAC units last 15–20 years. Get age and maintenance history. Replacement ($5,000–$12,000) counts as exchange improvement and improves rental appeal.</span>
+        <span class="cl-tag tag-important">IMPORTANT</span>
+      </div>
+    </li>
+    <li data-id="c8">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Insulation Assessment</span>
+        <span class="cl-sub">1960s insulation often inadequate by modern standards. Check attic and crawl space. Upgrading improves energy efficiency and tenant comfort.</span>
+        <span class="cl-tag tag-normal">CHECK DURING INSPECTION</span>
+      </div>
+    </li>
+    <li data-id="c9">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Foundation Check</span>
+        <span class="cl-sub">59 years of settling. Look for cracks, uneven floors, sticking doors. Foundation issues can be very costly. Include in general home inspection.</span>
+        <span class="cl-tag tag-normal">CHECK DURING INSPECTION</span>
+      </div>
+    </li>
+    <li data-id="c10">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Water Heater Age</span>
+        <span class="cl-sub">Typical lifespan 10–15 years. If old, replacement ($1,000–$3,000) counts as improvement and is essential for a rental with 4–6 tenants.</span>
+        <span class="cl-tag tag-normal">CHECK DURING INSPECTION</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- FINANCIALS -->
+<div class="section" id="financials">
+  <div class="section-title">Financial Summary</div>
+  <div class="section-desc">Cost estimates, exchange fees, and rental income projections.</div>
+
+  <h3 style="font-family:'DM Serif Display',serif; color:var(--green-900); margin-bottom:12px;">Renovation Cost Estimates</h3>
+  <table class="data-table">
+    <tr><th>Item</th><th style="text-align:right;width:18%">Low</th><th style="text-align:right;width:18%">High</th></tr>
+    <tr><td>Property Purchase</td><td class="money">$299,900</td><td class="money">$299,900</td></tr>
+    <tr><td>Living Room → Bedroom (door + closet)</td><td class="money">$2,000</td><td class="money">$4,500</td></tr>
+    <tr><td>Primary Bathroom Reno (tub removal, shower, fixtures)</td><td class="money">$6,000</td><td class="money">$15,000</td></tr>
+    <tr><td>Upstairs Bathroom Shower Replacement</td><td class="money">$2,000</td><td class="money">$5,000</td></tr>
+    <tr><td>Paint & Flooring Throughout</td><td class="money">$5,000</td><td class="money">$12,000</td></tr>
+    <tr><td>Kitchen / General Updates</td><td class="money">$3,000</td><td class="money">$8,000</td></tr>
+    <tr><td>Age-Related Repairs (electrical, plumbing, abatement)</td><td class="money">$2,000</td><td class="money">$15,000</td></tr>
+    <tr><td>Other Improvements (HVAC, insulation, roof)</td><td class="money">$0</td><td class="money">$12,000</td></tr>
+    <tr class="total-row"><td><strong>Total Renovations</strong></td><td class="money">$20,000</td><td class="money">$71,500</td></tr>
+    <tr class="grand-row"><td><strong>Purchase + Renovations</strong></td><td class="money">$319,900</td><td class="money">$371,400</td></tr>
+  </table>
+  <p style="font-size:0.88em; color:var(--slate-600); margin-bottom:24px;">Boot elimination target: ~$350,000 (matching condo sale). High estimate exceeds this. Even low estimate significantly reduces taxable portion.</p>
+
+  <h3 style="font-family:'DM Serif Display',serif; color:var(--green-900); margin-bottom:12px;">Exchange-Related Fees</h3>
+  <table class="data-table">
+    <tr><th>Fee</th><th style="text-align:right;width:18%">Low</th><th style="text-align:right;width:18%">High</th></tr>
+    <tr><td>Qualified Intermediary + EAT Fees</td><td class="money">$6,000</td><td class="money">$15,000</td></tr>
+    <tr><td>Legal / CPA Advisory</td><td class="money">$1,000</td><td class="money">$3,000</td></tr>
+    <tr><td>Closing Costs (both transactions)</td><td class="money">$6,000</td><td class="money">$12,000</td></tr>
+    <tr class="total-row"><td><strong>Total Exchange Fees</strong></td><td class="money">$13,000</td><td class="money">$30,000</td></tr>
+  </table>
+
+  <h3 style="font-family:'DM Serif Display',serif; color:var(--green-900); margin:24px 0 12px;">Rental Income Projections</h3>
+  <table class="data-table">
+    <tr><th>Scenario</th><th style="text-align:right">Monthly</th><th style="text-align:right">Annual</th></tr>
+    <tr><td>Zillow Rent Zestimate (as-is)</td><td class="money">$2,637</td><td class="money">$31,644</td></tr>
+    <tr><td>By-room: 5 rooms × $500</td><td class="money">$2,500</td><td class="money">$30,000</td></tr>
+    <tr><td>By-room: 5 rooms × $600</td><td class="money">$3,000</td><td class="money">$36,000</td></tr>
+    <tr><td>By-room: 6 rooms × $600</td><td class="money">$3,600</td><td class="money">$43,200</td></tr>
+    <tr><td>By-room: 6 rooms × $650</td><td class="money">$3,900</td><td class="money">$46,800</td></tr>
+  </table>
+  <p style="font-size:0.88em; color:var(--slate-600);">Annual taxes: $2,458. No HOA. Est. mortgage: $1,500–$1,800/mo depending on financing.</p>
+</div>
+
+<!-- RENOVATIONS -->
+<div class="section" id="renovations">
+  <div class="section-title">Renovation Plan</div>
+  <div class="section-desc">Track renovation items. All work must be completed and installed while the EAT holds title.</div>
+
+  <ul class="checklist" id="renoList">
+    <li data-id="r1">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Living Room → Bedroom Conversion</span>
+        <span class="cl-sub">Add reach-in closet (~6–8' wide) and interior door. Room is 16'4" × 20'6" — plenty of space. Creates 6th bedroom for rental. Est: $2,000–$4,500. Timeline: 1–2 weeks.</span>
+      </div>
+    </li>
+    <li data-id="r2">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Primary Bathroom Renovation</span>
+        <span class="cl-sub">Remove tub, upgrade/expand shower (walk-in or tiled), replace toilet, replace sink/vanity, refresh flooring and paint. Room is 7'9" × 13'8". Est: $6,000–$15,000. Timeline: 3–6 weeks.</span>
+      </div>
+    </li>
+    <li data-id="r3">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Upstairs Bathroom Shower Replacement</span>
+        <span class="cl-sub">Replace existing shower (no plumbing relocation). Durable prefab/acrylic or tiled. New fixtures. Room is 7'2" × 8'3". Est: $2,000–$5,000. Timeline: 1–2 weeks.</span>
+      </div>
+    </li>
+    <li data-id="r4">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Paint Throughout (Both Floors)</span>
+        <span class="cl-sub">All bedrooms, common areas, hallways, bathrooms. Neutral, rental-friendly colors. Lead paint precautions required. Est: $4,000–$8,000.</span>
+      </div>
+    </li>
+    <li data-id="r5">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Flooring Updates</span>
+        <span class="cl-sub">Replace worn carpet and damaged areas. Consider LVP (luxury vinyl plank) for durability in a rental. Keep hardwood where it's in good condition. Est: $3,000–$8,000.</span>
+      </div>
+    </li>
+    <li data-id="r6">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Kitchen Updates</span>
+        <span class="cl-sub">As needed: appliances, countertops, fixtures. Farmhouse sink already present. Refrigerator included. Est: $3,000–$8,000.</span>
+      </div>
+    </li>
+    <li data-id="r7">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Age-Related Repairs</span>
+        <span class="cl-sub">Electrical panel upgrade, plumbing repairs, lead/asbestos abatement as determined by inspections. Est: $2,000–$15,000.</span>
+      </div>
+    </li>
+    <li data-id="r8">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Major Systems (If Needed)</span>
+        <span class="cl-sub">HVAC replacement, roof repairs, insulation upgrade — depends on inspection findings. Est: $0–$12,000. Each counts as exchange improvement.</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="callout callout-red">
+    <strong>⚠ Critical Exchange Rule</strong>
+    ALL renovations must be physically completed and in place before the EAT transfers the property to us, and within 180 days. Materials purchased but not installed do NOT count. Only finished, installed work counts toward the exchange value.
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section" id="timeline">
+  <div class="section-title">Timeline</div>
+  <div class="section-desc">Target: rent-ready for student athletes by August 2026. Track milestone completion.</div>
+
+  <div class="timeline" id="timelineList">
+    <div class="tl-item" data-id="t1">
+      <div class="tl-when">Late May 2026</div>
+      <div class="tl-what">Engage Professionals</div>
+      <div class="tl-detail">Contact QI (IPX1031 — Whitney Brennan: 877.310.1031). Consult CPA. Schedule home inspection + lead/asbestos testing. Find a lender experienced with reverse exchanges.</div>
+      <div class="tl-check"><div class="cl-box" onclick="toggleCheck(this)"></div> <span style="font-size:0.82em; color:var(--slate-600);">Mark complete</span></div>
+    </div>
+    <div class="tl-item" data-id="t2">
+      <div class="tl-when">Early June 2026</div>
+      <div class="tl-what">EAT Acquires Property</div>
+      <div class="tl-detail">Close on new property through EAT. 45-day and 180-day clocks start. Begin renovations immediately. Confirm contractor schedule.</div>
+      <div class="tl-check"><div class="cl-box" onclick="toggleCheck(this)"></div> <span style="font-size:0.82em; color:var(--slate-600);">Mark complete</span></div>
+    </div>
+    <div class="tl-item" data-id="t3">
+      <div class="tl-when">June – July 2026</div>
+      <div class="tl-what">Renovations Underway</div>
+      <div class="tl-detail">Bathroom renovations, bedroom conversion, paint, flooring, and any age-related repairs. Simultaneously list condo for sale.</div>
+      <div class="tl-check"><div class="cl-box" onclick="toggleCheck(this)"></div> <span style="font-size:0.82em; color:var(--slate-600);">Mark complete</span></div>
+    </div>
+    <div class="tl-item" data-id="t4">
+      <div class="tl-when">Mid-July 2026</div>
+      <div class="tl-what">45-Day Identification Deadline</div>
+      <div class="tl-detail">Formally identify condo as property to be sold. Already planned — straightforward step.</div>
+      <div class="tl-check"><div class="cl-box" onclick="toggleCheck(this)"></div> <span style="font-size:0.82em; color:var(--slate-600);">Mark complete</span></div>
+    </div>
+    <div class="tl-item" data-id="t5">
+      <div class="tl-when">Late July 2026</div>
+      <div class="tl-what">Renovations Complete</div>
+      <div class="tl-detail">All work finished, installed, and in place. Final cleaning and preparation for tenants.</div>
+      <div class="tl-check"><div class="cl-box" onclick="toggleCheck(this)"></div> <span style="font-size:0.82em; color:var(--slate-600);">Mark complete</span></div>
+    </div>
+    <div class="tl-item" data-id="t6">
+      <div class="tl-when">August 2026</div>
+      <div class="tl-what">Students Move In</div>
+      <div class="tl-detail">Student athletes move in. Rental income begins. Property is leased to us by EAT; we sublease to tenants.</div>
+      <div class="tl-check"><div class="cl-box" onclick="toggleCheck(this)"></div> <span style="font-size:0.82em; color:var(--slate-600);">Mark complete</span></div>
+    </div>
+    <div class="tl-item" data-id="t7">
+      <div class="tl-when">Aug – Nov 2026</div>
+      <div class="tl-what">Sell Condo</div>
+      <div class="tl-detail">Close on condo sale. Proceeds flow through QI. EAT transfers title to us. Exchange complete.</div>
+      <div class="tl-check"><div class="cl-box" onclick="toggleCheck(this)"></div> <span style="font-size:0.82em; color:var(--slate-600);">Mark complete</span></div>
+    </div>
+    <div class="tl-item" data-id="t8">
+      <div class="tl-when">By December 2026</div>
+      <div class="tl-what">180-Day Deadline</div>
+      <div class="tl-detail">Hard deadline — everything must be completed. No extensions. File IRS Form 8824 with tax return.</div>
+      <div class="tl-check"><div class="cl-box" onclick="toggleCheck(this)"></div> <span style="font-size:0.82em; color:var(--slate-600);">Mark complete</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTION ITEMS -->
+<div class="section" id="actions">
+  <div class="section-title">Action Items</div>
+  <div class="section-desc">Prioritized checklist of everything we need to do. Check items off as completed.</div>
+
+  <ul class="checklist" id="actionList">
+    <li data-id="a1">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Consult a CPA / Tax Advisor</span>
+        <span class="cl-sub">Calculate actual capital gains on the condo. Determine if the exchange is financially worth the cost and complexity.</span>
+        <span class="cl-tag tag-critical">DO FIRST</span>
+      </div>
+    </li>
+    <li data-id="a2">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Contact IPX1031 (Whitney Brennan)</span>
+        <span class="cl-sub">Phone: 877.310.1031 | Mobile: 916.806.1468 | Email: whitney.brennan@ipx1031.com | Free consultation. Must be set up BEFORE closing on new property.</span>
+        <span class="cl-tag tag-critical">DO FIRST</span>
+      </div>
+    </li>
+    <li data-id="a3">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Schedule Home Inspection + Lead/Asbestos Testing</span>
+        <span class="cl-sub">Critical for a 1967 home. Must know results before planning or pricing renovations. Determines abatement costs.</span>
+        <span class="cl-tag tag-critical">DO FIRST</span>
+      </div>
+    </li>
+    <li data-id="a4">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Find Lender Experienced with Reverse Exchanges</span>
+        <span class="cl-sub">EAT will be on title temporarily — not all lenders accept this. HELOC, bridge loan, or conventional mortgage. Often the biggest bottleneck.</span>
+        <span class="cl-tag tag-important">HIGH PRIORITY</span>
+      </div>
+    </li>
+    <li data-id="a5">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Get Contractor Estimates for Renovations</span>
+        <span class="cl-sub">Need firm costs and timelines for the improvement exchange. Bathroom reno, bedroom conversion, paint, flooring, and any age-related repairs.</span>
+        <span class="cl-tag tag-important">HIGH PRIORITY</span>
+      </div>
+    </li>
+    <li data-id="a6">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Add Exchange Cooperation Clause to Purchase Agreement</span>
+        <span class="cl-sub">Required addendum to the purchase and sale agreement on both properties. QI will provide the language.</span>
+        <span class="cl-tag tag-important">HIGH PRIORITY</span>
+      </div>
+    </li>
+    <li data-id="a7">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Prepare Condo for Sale</span>
+        <span class="cl-sub">Select listing agent, stage, make any necessary repairs. The faster the condo sells, the smoother the exchange.</span>
+        <span class="cl-tag tag-normal">SOON</span>
+      </div>
+    </li>
+    <li data-id="a8">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Research Student Athlete Rental Market</span>
+        <span class="cl-sub">Confirm rental rates by room near the university. Understand lease terms, move-in timing, and what amenities matter to student athletes.</span>
+        <span class="cl-tag tag-normal">SOON</span>
+      </div>
+    </li>
+    <li data-id="a9">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Set Up Landlord Insurance</span>
+        <span class="cl-sub">Switch from homeowner's to landlord/rental property insurance before tenants move in. Required by most lenders.</span>
+        <span class="cl-tag tag-normal">BEFORE MOVE-IN</span>
+      </div>
+    </li>
+    <li data-id="a10">
+      <div class="cl-box" onclick="toggleCheck(this)"></div>
+      <div class="cl-content">
+        <span class="cl-text">Draft Lease Agreements</span>
+        <span class="cl-sub">Prepare lease agreements for student athlete tenants. Consider individual room leases vs. whole-house lease. Consult with attorney if needed.</span>
+        <span class="cl-tag tag-normal">BEFORE MOVE-IN</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨 Print</button>
+
+<script>
+// Tab navigation
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('visible');
+  });
+});
+
+// Checkbox persistence via localStorage
+const STORAGE_KEY = '1031_exchange_checklist';
+
+function getState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; }
+}
+function saveState(state) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+}
+
+function toggleCheck(box) {
+  box.classList.toggle('done');
+  const li = box.closest('li') || box.closest('.tl-item');
+  if (li) {
+    if (box.classList.contains('done')) li.classList.add('checked');
+    else li.classList.remove('checked');
+  }
+  // Save
+  const state = {};
+  document.querySelectorAll('.cl-box').forEach((b, i) => {
+    state['cb_' + i] = b.classList.contains('done');
+  });
+  saveState(state);
+  updateProgress();
+}
+
+function restoreState() {
+  const state = getState();
+  document.querySelectorAll('.cl-box').forEach((b, i) => {
+    if (state['cb_' + i]) {
+      b.classList.add('done');
+      const li = b.closest('li') || b.closest('.tl-item');
+      if (li) li.classList.add('checked');
+    }
+  });
+  updateProgress();
+}
+
+function updateProgress() {
+  const boxes = document.querySelectorAll('.cl-box');
+  const done = document.querySelectorAll('.cl-box.done').length;
+  const pct = Math.round((done / boxes.length) * 100);
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+restoreState();
+</script>
+</body>
+</html>

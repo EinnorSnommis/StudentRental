@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Comparison — Reverse 1031 Exchange</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g900:#1a3a1a;--g800:#1B5E20;--g700:#2E7D32;--g600:#388E3C;--g500:#43A047;--g400:#66BB6A;
+  --g100:#E8F5E9;--g50:#f1f8f1;
+  --a700:#E65100;--a100:#FFF3E0;--a50:#FFF8E1;
+  --r700:#C62828;--r100:#FFEBEE;
+  --blue:#1e3a5f;--blue-bg:#e8eef5;
+  --s900:#1a1a2e;--s800:#2d2d44;--s600:#555;--s400:#999;--s200:#e2e2e2;--s100:#f0f0f0;--s50:#f8f8fa;
+  --white:#fff;--bg:linear-gradient(160deg,#f4f7f4 0%,#eef2ee 40%,#f8f6f0 100%);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(0,0,0,.08);--shadow-lg:0 8px 30px rgba(0,0,0,.1);
+  --radius:10px;--radius-sm:6px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--s900);line-height:1.65;min-height:100vh;}
+.wrap{max-width:960px;margin:0 auto;padding:20px 24px 80px;}
+.hero{background:linear-gradient(135deg,var(--g900) 0%,var(--g800) 40%,var(--g700) 100%);border-radius:16px;padding:44px 40px 36px;margin-bottom:28px;color:#fff;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:rgba(255,255,255,.04);border-radius:50%;}
+.hero-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:.55;margin-bottom:10px;}
+.hero h1{font-family:'DM Serif Display',serif;font-size:2.2em;font-weight:400;line-height:1.15;margin-bottom:6px;}
+.hero-sub{font-size:1em;opacity:.75;margin-bottom:16px;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:12px;}
+.hero-chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:5px 14px;font-size:.82em;font-weight:500;}
+
+.nav-bar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;background:var(--white);padding:8px;border-radius:var(--radius);box-shadow:var(--shadow-sm);border:1px solid var(--s200);position:sticky;top:8px;z-index:100;}
+.nav-btn{flex:1;min-width:100px;padding:8px 10px;border:none;background:transparent;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:.78em;font-weight:600;color:var(--s600);cursor:pointer;transition:all .2s;}
+.nav-btn:hover{background:var(--g50);color:var(--g800);}
+.nav-btn.active{background:var(--g800);color:#fff;}
+
+.section{background:var(--white);border-radius:var(--radius);padding:30px;margin-bottom:18px;box-shadow:var(--shadow-sm);border:1px solid var(--s200);display:none;}
+.section.visible{display:block;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sec-title{font-family:'DM Serif Display',serif;font-size:1.5em;color:var(--g900);margin-bottom:4px;}
+.sec-desc{color:var(--s600);margin-bottom:20px;font-size:.92em;}
+
+table.dt{width:100%;border-collapse:separate;border-spacing:0;border-radius:var(--radius-sm);overflow:hidden;margin-bottom:20px;font-size:.85em;border:1px solid var(--s200);}
+table.dt th{background:var(--g800);color:#fff;font-weight:600;text-align:left;padding:9px 12px;font-size:.82em;letter-spacing:.3px;}
+table.dt th.r{text-align:right;}table.dt th.c{text-align:center;}
+table.dt td{padding:8px 12px;border-bottom:1px solid var(--s100);}
+table.dt tr:nth-child(even) td{background:var(--s50);}
+table.dt tr:last-child td{border-bottom:none;}
+table.dt .mono{font-family:'JetBrains Mono',monospace;font-size:.95em;}
+table.dt .r{text-align:right;}table.dt .c{text-align:center;}
+table.dt .total td{background:var(--g100);font-weight:700;}
+table.dt .grand td{background:var(--g800);color:#fff;font-weight:700;}
+
+.callout{border-radius:var(--radius-sm);padding:16px 18px;margin-bottom:16px;border-left:4px solid;font-size:.9em;}
+.co-green{background:var(--g50);border-color:var(--g700);}
+.co-amber{background:var(--a50);border-color:var(--a700);}
+.co-red{background:#FFF5F5;border-color:var(--r700);}
+.co-blue{background:var(--blue-bg);border-color:var(--blue);}
+.callout strong{display:block;margin-bottom:3px;}
+.co-green strong{color:var(--g800);}.co-amber strong{color:var(--a700);}.co-red strong{color:var(--r700);}.co-blue strong{color:var(--blue);}
+
+.pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.7em;font-weight:700;letter-spacing:.4px;text-transform:uppercase;vertical-align:middle;}
+.pill-primary{background:var(--g800);color:#fff;}
+.pill-contender{background:var(--g700);color:#fff;}
+.pill-above{background:var(--a100);color:var(--a700);}
+.pill-flag{background:var(--r100);color:var(--r700);}
+.pill-consider{background:var(--a100);color:var(--a700);}
+.pill-weak{background:var(--s100);color:var(--s600);}
+.pill-pre78{background:#FEF3C7;color:#92400E;margin-left:6px;}
+
+.card{background:var(--white);border:1px solid var(--s200);border-radius:var(--radius);margin-bottom:16px;overflow:hidden;transition:all .25s;cursor:pointer;}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.card-bar{height:4px;}
+.card-body{padding:18px 22px;}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;}
+.card-addr{font-family:'DM Serif Display',serif;font-size:1.2em;color:var(--s900);margin:4px 0 2px;}
+.card-city{font-size:.82em;color:var(--s400);}
+.card-price{font-family:'JetBrains Mono',monospace;font-size:1.4em;font-weight:600;color:var(--g800);}
+.card-sqft{font-size:.78em;color:var(--s400);}
+.card-stats{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;padding-top:12px;border-top:1px solid var(--s100);}
+.card-stat .cs-label{font-size:.7em;color:var(--s400);font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
+.card-stat .cs-val{font-size:.92em;font-weight:600;color:var(--s900);}
+.card-stat .cs-mono{font-family:'JetBrains Mono',monospace;font-size:.9em;font-weight:500;}
+.card-notes{font-size:.84em;color:var(--s600);margin-top:10px;line-height:1.5;font-style:italic;}
+
+.detail-panel{display:none;background:var(--s50);border-top:1px solid var(--s200);padding:20px 22px;}
+.detail-panel.open{display:block;animation:fadeIn .2s ease;}
+
+.rank-num{font-family:'JetBrains Mono',monospace;font-size:1.4em;font-weight:700;color:var(--g800);width:36px;min-width:36px;text-align:center;}
+.rank-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--s100);}
+.rank-row:last-child{border-bottom:none;}
+
+.print-btn{position:fixed;bottom:20px;right:20px;background:var(--g800);color:#fff;border:none;border-radius:40px;padding:12px 24px;font-family:'DM Sans',sans-serif;font-size:.85em;font-weight:600;cursor:pointer;box-shadow:var(--shadow-lg);z-index:200;transition:transform .2s;}
+.print-btn:hover{transform:scale(1.05);}
+@media print{.nav-bar,.print-btn{display:none!important;}.section{display:block!important;page-break-inside:avoid;box-shadow:none;border:1px solid #ccc;}body{background:#fff;}.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+@media(max-width:640px){.wrap{padding:12px 14px 60px;}.hero{padding:24px 18px 20px;}.hero h1{font-size:1.5em;}.section{padding:18px 14px;}.nav-btn{min-width:70px;font-size:.68em;padding:6px;}.card-price{font-size:1.1em;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-label">Reverse Improvement 1031 Exchange</div>
+  <h1>Property Comparison</h1>
+  <div class="hero-sub">8 Properties in Lumberton, NC — Student Athlete Rental Plan</div>
+  <div class="hero-chips">
+    <span class="hero-chip">Condo Value: ~$350,000</span>
+    <span class="hero-chip">Target: August 2026</span>
+    <span class="hero-chip">8 Properties Compared</span>
+    <span class="hero-chip">All Pre-1978 Builds</span>
+  </div>
+</div>
+
+<div class="nav-bar">
+  <button class="nav-btn active" data-tab="comparison">Comparison</button>
+  <button class="nav-btn" data-tab="exchange">Exchange Math</button>
+  <button class="nav-btn" data-tab="properties">All Properties</button>
+  <button class="nav-btn" data-tab="ranking">Final Ranking</button>
+</div>
+
+<!-- COMPARISON -->
+<div class="section visible" id="comparison">
+  <div class="sec-title">Side-by-Side Comparison</div>
+  <div class="sec-desc">All 8 properties at a glance. Sorted by ranking.</div>
+  <div style="overflow-x:auto;">
+  <table class="dt">
+    <tr>
+      <th>Address</th><th class="r">Price</th><th class="c">Beds</th><th class="c">Baths</th>
+      <th class="c">Sqft</th><th class="c">Year</th><th class="r">Taxes</th><th class="c">DOM</th><th>Type</th>
+    </tr>
+    <tr style="background:var(--g100);">
+      <td><strong>3302 N Rowland Ave ⭐</strong></td><td class="r mono">$299,900</td><td class="c">5</td><td class="c">4</td>
+      <td class="c">3,892</td><td class="c">1967</td><td class="r mono">$2,458</td><td class="c">47</td><td>SFR — Colonial</td>
+    </tr>
+    <tr>
+      <td><strong>2900 Shaw Ave</strong></td><td class="r mono">$330,000</td><td class="c">5</td><td class="c">5</td>
+      <td class="c">3,001–3,500</td><td class="c">1957</td><td class="r mono">$2,003</td><td class="c" style="color:var(--r700);font-weight:700;">427</td><td>SFR</td>
+    </tr>
+    <tr>
+      <td><strong>905 Riverside Blvd</strong></td><td class="r mono">$299,000</td><td class="c">5</td><td class="c">3</td>
+      <td class="c">2,001–2,200</td><td class="c">1947</td><td class="r mono">$1,552</td><td class="c">20</td><td>SFR</td>
+    </tr>
+    <tr>
+      <td><strong>3690 Kale Dr</strong></td><td class="r mono">$359,000</td><td class="c">5</td><td class="c">3</td>
+      <td class="c">2,601–2,800</td><td class="c">1974</td><td class="r mono">$2,268</td><td class="c">48</td><td>SFR — Colonial</td>
+    </tr>
+    <tr>
+      <td>206 W 32nd St</td><td class="r mono">$242,900</td><td class="c">4</td><td class="c">3</td>
+      <td class="c">2,601–2,800</td><td class="c">1969</td><td class="r mono">$1,722</td><td class="c">63</td><td>SFR — Two-Story</td>
+    </tr>
+    <tr>
+      <td>504 W 30th St</td><td class="r mono">$229,000</td><td class="c">3</td><td class="c">2</td>
+      <td class="c">2,201–2,400</td><td class="c">1960</td><td class="r mono">$1,116</td><td class="c" style="color:var(--g700);font-weight:600;">5</td><td>SFR</td>
+    </tr>
+    <tr>
+      <td>209 E 18th St</td><td class="r mono">$215,000</td><td class="c">4</td><td class="c">2</td>
+      <td class="c">1,401–1,500</td><td class="c" style="color:var(--r700);">1936</td><td class="r mono">$1,274</td><td class="c">78</td><td>SFR — Bungalow</td>
+    </tr>
+    <tr>
+      <td>3540 Fayetteville Rd</td><td class="r mono">$120,000</td><td class="c">3</td><td class="c">3</td>
+      <td class="c">1,501–1,600</td><td class="c">1971</td><td class="r mono">$909</td><td class="c">33</td><td style="color:var(--a700);">Townhouse (HOA)</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="callout co-green">
+    <strong>Key Takeaway</strong>
+    All 8 properties are pre-1978 builds, meaning lead paint and asbestos inspections are required for any property chosen. The top 4 contenders all have 5 bedrooms. 3302 N Rowland Ave leads in total square footage by a wide margin (3,892 sqft vs. next best at ~3,200).
+  </div>
+</div>
+
+<!-- EXCHANGE MATH -->
+<div class="section" id="exchange">
+  <div class="sec-title">Exchange Math</div>
+  <div class="sec-desc">How each property stacks up for boot elimination. Condo value: ~$350,000.</div>
+
+  <table class="dt">
+    <tr><th>Property</th><th class="r">Price</th><th class="r">Reno to Close Gap</th><th class="r">Price + Reno</th><th class="c">Boot Gap</th><th class="c">Feasible?</th></tr>
+    <tr style="background:var(--g100);">
+      <td><strong>3302 N Rowland Ave ⭐</strong></td><td class="r mono">$299,900</td><td class="r mono">~$50,100</td><td class="r mono"><strong>$350,000</strong></td>
+      <td class="c" style="color:var(--g700);font-weight:700;">$0–$30K</td><td class="c">✅ Yes</td>
+    </tr>
+    <tr>
+      <td><strong>905 Riverside Blvd</strong></td><td class="r mono">$299,000</td><td class="r mono">~$51,000</td><td class="r mono"><strong>$350,000</strong></td>
+      <td class="c" style="color:var(--g700);font-weight:700;">$0–$51K</td><td class="c">✅ Yes</td>
+    </tr>
+    <tr>
+      <td><strong>3690 Kale Dr</strong></td><td class="r mono">$359,000</td><td class="r mono">$0</td><td class="r mono"><strong>$359,000</strong></td>
+      <td class="c" style="color:var(--g700);font-weight:700;">None ✓</td><td class="c">✅ No reno needed</td>
+    </tr>
+    <tr>
+      <td><strong>2900 Shaw Ave</strong></td><td class="r mono">$330,000</td><td class="r mono">~$20,000</td><td class="r mono"><strong>$350,000</strong></td>
+      <td class="c" style="color:var(--g700);font-weight:700;">$0–$20K</td><td class="c">✅ Yes</td>
+    </tr>
+    <tr>
+      <td>206 W 32nd St</td><td class="r mono">$242,900</td><td class="r mono">~$107,100</td><td class="r mono">$350,000</td>
+      <td class="c" style="color:var(--a700);font-weight:600;">$0–$107K</td><td class="c">⚠ Heavy</td>
+    </tr>
+    <tr>
+      <td>504 W 30th St</td><td class="r mono">$229,000</td><td class="r mono">~$121,000</td><td class="r mono">$350,000</td>
+      <td class="c" style="color:var(--r700);font-weight:600;">$121K</td><td class="c">❌ Too much</td>
+    </tr>
+    <tr>
+      <td>209 E 18th St</td><td class="r mono">$215,000</td><td class="r mono">~$135,000</td><td class="r mono">$350,000</td>
+      <td class="c" style="color:var(--r700);font-weight:600;">$135K</td><td class="c">❌ Too much</td>
+    </tr>
+    <tr>
+      <td>3540 Fayetteville Rd</td><td class="r mono">$120,000</td><td class="r mono">~$230,000</td><td class="r mono">$350,000</td>
+      <td class="c" style="color:var(--r700);font-weight:600;">$230K</td><td class="c">❌ Not alone</td>
+    </tr>
+  </table>
+
+  <div class="callout co-green">
+    <strong>Best Exchange Fits</strong>
+    The top 4 properties all have manageable paths to eliminating boot. Kale Dr eliminates it with no renovations at all. Shaw Ave only needs ~$20K. Rowland Ave and Riverside both need ~$50K — very doable with bathroom renos, bedroom conversion, paint, and flooring.
+  </div>
+
+  <div class="callout co-amber">
+    <strong>Reminder: Only Installed Work Counts</strong>
+    All renovations must be physically completed and in place while the EAT holds title, within 180 days. Materials purchased but not installed do NOT count toward exchange value.
+  </div>
+</div>
+
+<!-- ALL PROPERTIES -->
+<div class="section" id="properties">
+  <div class="sec-title">Property Details</div>
+  <div class="sec-desc">Click any property to expand full details and notes.</div>
+  <div id="propCards"></div>
+</div>
+
+<!-- RANKING -->
+<div class="section" id="ranking">
+  <div class="sec-title">Final Ranking</div>
+  <div class="sec-desc">Properties ranked by overall fit for the reverse improvement exchange and student athlete rental.</div>
+
+  <div class="rank-row">
+    <div class="rank-num">1</div>
+    <div>
+      <strong style="font-size:1.05em;">3302 N Rowland Ave — $299,900</strong> <span class="pill pill-primary">PRIMARY CHOICE</span>
+      <p style="font-size:.88em;color:var(--s600);margin-top:4px;">Best overall. Largest sqft (3,892), most bedrooms (6 after conversion), manageable boot gap (~$50K in renos), strong rental income potential ($3,600–$3,900/mo by room). Already researched and planned in detail.</p>
+    </div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num">2</div>
+    <div>
+      <strong style="font-size:1.05em;">2900 Shaw Ave — $330,000</strong> <span class="pill pill-flag">INVESTIGATE 427 DOM</span>
+      <p style="font-size:.88em;color:var(--s600);margin-top:4px;">5 beds / 5 baths — best bathroom count for shared housing. Kitchen already updated. Only $20K boot gap. BUT 427 days on market is a major red flag. Find out why before pursuing.</p>
+    </div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num">3</div>
+    <div>
+      <strong style="font-size:1.05em;">905 Riverside Blvd — $299,000</strong> <span class="pill pill-contender">STRONG CONTENDER</span>
+      <p style="font-size:.88em;color:var(--s600);margin-top:4px;">Already renovated — designer kitchen, new floors, modern fixtures. Move-in ready. BUT 1947 build (oldest) and only 2,001–2,200 sqft. Smaller rooms for athletes. Large lot (1–2 acres) is a plus.</p>
+    </div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num">4</div>
+    <div>
+      <strong style="font-size:1.05em;">3690 Kale Dr — $359,000</strong> <span class="pill pill-above">ABOVE BUDGET</span>
+      <p style="font-size:.88em;color:var(--s600);margin-top:4px;">No boot at all. Two primary suites, 2-car garage, newest build (1974). BUT above condo value = more cash upfront, higher mortgage, reduced rental profit margin.</p>
+    </div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num">5</div>
+    <div>
+      <strong style="font-size:1.05em;">206 W 32nd St — $242,900</strong> <span class="pill pill-consider">CONSIDERING</span>
+      <p style="font-size:.88em;color:var(--s600);margin-top:4px;">Good price, decent space. But only 4 bedrooms and $107K renovation gap to close boot. Heavy scope for the August timeline.</p>
+    </div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num">6</div>
+    <div>
+      <strong style="font-size:1.05em;">504 W 30th St — $229,000</strong> <span class="pill pill-weak">TOO FEW BEDS</span>
+      <p style="font-size:.88em;color:var(--s600);margin-top:4px;">Fresh listing (5 DOM), good price. But only 3 bedrooms — not viable for student athlete model without major conversion. $121K reno gap.</p>
+    </div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num">7</div>
+    <div>
+      <strong style="font-size:1.05em;">209 E 18th St — $215,000</strong> <span class="pill pill-weak">TOO SMALL / TOO OLD</span>
+      <p style="font-size:.88em;color:var(--s600);margin-top:4px;">Cheapest SFR but only 1,401–1,500 sqft and built 1936 (90 years old). Too small, too old, too much risk. Seller concessions available if interested.</p>
+    </div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num">8</div>
+    <div>
+      <strong style="font-size:1.05em;">3540 Fayetteville Rd — $120,000</strong> <span class="pill pill-weak">COMBO ONLY</span>
+      <p style="font-size:.88em;color:var(--s600);margin-top:4px;">Townhouse with $150/mo HOA. Too small, too few beds. Only viable as a second property in a multi-property exchange combination.</p>
+    </div>
+  </div>
+
+  <div class="callout co-blue" style="margin-top:20px;">
+    <strong>Multi-Property Option</strong>
+    The IRS allows purchasing up to 3 replacement properties in a single 1031 exchange. Combining cheaper properties (e.g., Fayetteville $120K + W 32nd $242K = $363K) could eliminate boot without heavy renovations. However, this adds complexity, cost, and management burden. Best used as a fallback if Rowland Ave falls through.
+  </div>
+</div>
+
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨 Print</button>
+
+<script>
+// Nav
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('visible');
+  });
+});
+
+// Property data
+const props = [
+  {addr:"3302 N Rowland Ave",city:"Lumberton, NC 28358",price:299900,beds:5,baths:"4 (3 full, 1 half)",sqft:"3,892",year:1967,lot:"Corner, ¼–½ acre",taxes:2458,hoa:"None",dom:47,mls:"759767",type:"SFR — Colonial",heat:"Gas / Gas",garage:"1 attached",status:"primary",statusLabel:"⭐ PRIMARY CHOICE",barColor:"linear-gradient(90deg,#1B5E20,#43A047)",
+    notes:"Brick veneer & frame. Crawl space foundation. Largest sqft of all options by far. Living room (16'4\" × 20'6\") convertible to 6th bedroom with closet + door ($2K–$4.5K). Primary bath needs reno — tub removal, shower upgrade, new fixtures ($6K–$15K). Upstairs shower replacement ($2K–$5K). Farmhouse sink, hardwood floors, laundry chute. Price cut from $310K on 5/16. Last sold Sept 2022 for $275K."},
+  {addr:"2900 Shaw Ave",city:"Lumberton, NC 28358",price:330000,beds:5,baths:"5 (3 full, 2 half)",sqft:"3,001–3,500",year:1957,lot:"½–¾ acre (half city block)",taxes:2003,hoa:"None",dom:427,mls:"740107",type:"SFR",heat:"Central Air",garage:"N/A",status:"flag",statusLabel:"⚠ INVESTIGATE — 427 DOM",barColor:"linear-gradient(90deg,#C62828,#EF5350)",
+    notes:"Most bathrooms of any option (5). Kitchen already updated: subway tile backsplash, granite countertops, new appliances. Very large bedrooms. Near UNC Health Southeastern and I-95. MAJOR RED FLAG: 427 days on market — why hasn't it sold? Could indicate structural issues, flooding history, or neighborhood concerns. Built 1957 — significant age concerns. Investigate thoroughly."},
+  {addr:"905 Riverside Blvd",city:"Lumberton, NC 28358",price:299000,beds:5,baths:"3 (3 full)",sqft:"2,001–2,200",year:1947,lot:"1–2 acres",taxes:1552,hoa:"None",dom:20,mls:"761617",type:"SFR",heat:"Central",garage:"N/A",status:"contender",statusLabel:"STRONG CONTENDER",barColor:"linear-gradient(90deg,#2E7D32,#66BB6A)",
+    notes:"Already updated: designer kitchen with quartz countertops, shaker cabinetry, new stainless steel appliances. New LVP flooring on main level, refinished hardwood upstairs. Modern bathroom fixtures and designer lighting throughout. Beautiful yard on very large lot (1–2 acres). Oldest home on the list (1947 — 79 years old) but move-in ready. Only 20 DOM. Last sold March 2015 for $170K."},
+  {addr:"3690 Kale Dr",city:"Lumberton, NC 28358",price:359000,beds:5,baths:"3 (3 full)",sqft:"2,601–2,800",year:1974,lot:"½–¾ acre",taxes:2268,hoa:"None",dom:48,mls:"760024",type:"SFR — Colonial",heat:"Heat Pump / Central Air",garage:"2 car",status:"above",statusLabel:"ABOVE BUDGET",barColor:"linear-gradient(90deg,#E65100,#FF8A50)",
+    notes:"Two primary suites — great flexibility. Wood-burning fireplace with exposed wooden beams. Open-concept kitchen. 1974 build = newest of the group and closer to post-lead-paint era. Priced above condo value at $359K so no boot and no improvement exchange needed. But higher price = more cash upfront and higher monthly mortgage, reducing rental profit. Last sold April 2022 for $310K."},
+  {addr:"206 W 32nd St",city:"Lumberton, NC 28358",price:242900,beds:4,baths:"3 (3 full)",sqft:"2,601–2,800",year:1969,lot:"¼–½ acre",taxes:1722,hoa:"None",dom:63,mls:"759858",type:"SFR — Two-Story",heat:"Heat Pump / Electric",garage:"2 car",status:"consider",statusLabel:"CONSIDERING",barColor:"linear-gradient(90deg,#b45309,#f59e0b)",
+    notes:"Tanglewood area. Two-story with historic charm and modern comfort. Three bedrooms upstairs, one down that could be guest room or office. Three full bathrooms. Large family-friendly kitchen. Near hospital and mall. 63 days on market. Would need to add bedrooms for student athlete rental model. $107K renovation gap is heavy for the timeline."},
+  {addr:"504 W 30th St",city:"Lumberton, NC 28358",price:229000,beds:3,baths:"2 (2 full)",sqft:"2,201–2,400",year:1960,lot:"¼–½ acre",taxes:1116,hoa:"None",dom:5,mls:"762649",type:"SFR",heat:"Gas / Central Air",garage:"1 car",status:"weak",statusLabel:"TOO FEW BEDS",barColor:"linear-gradient(90deg,#999,#bbb)",
+    notes:"Brand new listing (5 DOM). Freshly painted and back on market. Large retro-style kitchen with personality. Only 3 bedrooms, 2 bathrooms — not enough rooms for student athlete housing without major bedroom conversion work. Good bones and decent space. Tanglewood subdivision. Last sold Aug 2017 for $116K."},
+  {addr:"209 E 18th St",city:"Lumberton, NC 28358",price:215000,beds:4,baths:"2 (2 full)",sqft:"1,401–1,500",year:1936,lot:"¼–½ acre",taxes:1274,hoa:"None",dom:78,mls:"758516",type:"SFR — Bungalow",heat:"Heat Pump / Central Air",garage:"1 car",status:"weak",statusLabel:"TOO SMALL / TOO OLD",barColor:"linear-gradient(90deg,#999,#bbb)",
+    notes:"Historic bungalow — oldest property at 90 years old (1936). Original hardwood floors, character and charm. Main level: 2 beds + 1 bath. Upper level: 2 beds + 1 bath. Price reduction + seller concessions available. 78 days on market. At 1,401–1,500 sqft, simply too small for comfortable student athlete shared housing. Age creates exponential risk for all major systems."},
+  {addr:"3540 Fayetteville Rd",city:"Lumberton, NC 28358",price:120000,beds:3,baths:"3 (2 full, 1 half)",sqft:"1,501–1,600",year:1971,lot:"< ¼ acre",taxes:909,hoa:"$150/mo",dom:33,mls:"758608",type:"Townhouse",heat:"Central Air",garage:"N/A",status:"weak",statusLabel:"MULTI-PROPERTY COMBO ONLY",barColor:"linear-gradient(90deg,#999,#bbb)",
+    notes:"Only townhouse on the list. $150/month HOA could restrict rental activity. Located directly across from the high school. Smallest lot. Only 3 bedrooms. Cheapest option by far. Not viable as a standalone rental for student athletes. Could pair with another property in a multi-property exchange combination to hit the $350K boot target. Last sold Oct 2019 for $68,500."},
+];
+
+// Build cards
+const container = document.getElementById('propCards');
+props.forEach((pr, idx) => {
+  const gap = Math.max(0, 350000 - pr.price);
+  const card = document.createElement('div');
+  card.className = 'card';
+  const pillClass = pr.status === 'primary' ? 'pill-primary' : pr.status === 'contender' ? 'pill-contender' : pr.status === 'above' ? 'pill-above' : pr.status === 'flag' ? 'pill-flag' : pr.status === 'consider' ? 'pill-consider' : 'pill-weak';
+
+  card.innerHTML = `
+    <div class="card-bar" style="background:${pr.barColor}"></div>
+    <div class="card-body" onclick="this.parentElement.querySelector('.detail-panel').classList.toggle('open')">
+      <div class="card-head">
+        <div>
+          <span class="pill ${pillClass}">${pr.statusLabel}</span>
+          ${pr.year < 1978 ? '<span class="pill pill-pre78">Pre-1978</span>' : ''}
+          <div class="card-addr">${pr.addr}</div>
+          <div class="card-city">${pr.city} · MLS #${pr.mls}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="card-price">$${pr.price.toLocaleString()}</div>
+          <div class="card-sqft">${pr.sqft} sqft</div>
+        </div>
+      </div>
+      <div class="card-stats">
+        <div class="card-stat"><div class="cs-label">Beds / Baths</div><div class="cs-val">${pr.beds}bd / ${pr.baths.split(' ')[0]}ba</div></div>
+        <div class="card-stat"><div class="cs-label">Built</div><div class="cs-val">${pr.year}</div></div>
+        <div class="card-stat"><div class="cs-label">Lot</div><div class="cs-val">${pr.lot}</div></div>
+        <div class="card-stat"><div class="cs-label">Taxes</div><div class="cs-mono">$${pr.taxes.toLocaleString()}/yr</div></div>
+        <div class="card-stat"><div class="cs-label">HOA</div><div class="cs-val">${pr.hoa}</div></div>
+        <div class="card-stat"><div class="cs-label">DOM</div><div class="cs-val" ${pr.dom > 100 ? 'style="color:var(--r700);font-weight:700;"' : pr.dom < 10 ? 'style="color:var(--g700);font-weight:600;"' : ''}>${pr.dom}</div></div>
+        <div class="card-stat"><div class="cs-label">Boot Gap</div><div class="cs-mono" style="font-weight:600;color:${gap === 0 ? 'var(--g700)' : gap < 55000 ? 'var(--a700)' : 'var(--r700)'}">${gap === 0 ? '✓ None' : '$' + gap.toLocaleString()}</div></div>
+      </div>
+    </div>
+    <div class="detail-panel">
+      <table class="dt" style="margin-bottom:12px;">
+        <tr><th style="width:35%">Detail</th><th>Information</th></tr>
+        <tr><td><strong>Type</strong></td><td>${pr.type}</td></tr>
+        <tr><td><strong>Heating / Cooling</strong></td><td>${pr.heat}</td></tr>
+        <tr><td><strong>Garage</strong></td><td>${pr.garage}</td></tr>
+        <tr><td><strong>Lot</strong></td><td>${pr.lot}</td></tr>
+        <tr><td><strong>Year Built</strong></td><td>${pr.year} (${2026 - pr.year} years old)</td></tr>
+        <tr><td><strong>Days on Market</strong></td><td>${pr.dom}</td></tr>
+      </table>
+      <div class="callout ${pr.year < 1950 ? 'co-red' : 'co-amber'}">
+        <strong>⚠ Age: Built ${pr.year} (${2026 - pr.year} years old)</strong>
+        ${pr.year < 1950 ? 'Extremely old — expect significant issues across all systems. Lead paint and asbestos virtually guaranteed. Full electrical, plumbing, and structural inspection critical.' : 'Pre-1978 home — lead paint and asbestos inspection required before renovation. Check electrical panel capacity, plumbing condition, crawl space/foundation, roof age, and HVAC.'}
+      </div>
+      <p style="font-size:.88em;color:var(--s600);line-height:1.6;"><strong>Notes:</strong> <em>${pr.notes}</em></p>
+    </div>
+  `;
+  container.appendChild(card);
+});
+</script>
+</body>
+</html>
